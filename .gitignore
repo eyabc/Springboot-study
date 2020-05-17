@@ -30,3 +30,7 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### Secret File ###
+
+NaverAdapterSecret.java
