@@ -7,7 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 class SpringbootApplicationTests {
 
     @Test
-    void contextLoads() {
+    public void 네이버검색API_GET() throws Exception {
+
     }
 
 }
