@@ -11,9 +11,9 @@ import java.util.List;
 @NoArgsConstructor
 public class NaverAdapterResponse {
     private String lastBuildDate;
-        private long total;
-        private long start;
-        private long display;
+    private long total;
+    private long start;
+    private long display;
     private List<NaverAdapterResponseItems> items;
 
     @Getter
