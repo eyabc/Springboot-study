@@ -2,8 +2,8 @@ package com.eyabc.springboot.adapter;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.*;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 @Service
 @RequiredArgsConstructor
@@ -28,7 +28,4 @@ public class NaverAdapter {
 
         return response.getBody();
     }
-
-    @Component
-    public static class RestTemplate extends org.springframework.web.client.RestTemplate { }
 }
