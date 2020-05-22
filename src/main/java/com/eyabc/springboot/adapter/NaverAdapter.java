@@ -21,7 +21,7 @@ public class NaverAdapter {
         HttpHeaders header = new HttpHeaders();
         header.add(HttpHeaders.ACCEPT, MediaType.TEXT_HTML_VALUE);
         header.add("Host", "openapi.naver.com");
-        header.add("X-Naver-Client-Id", naverSecretProperty.getClientID());
+        header.add("X-Naver-Client-Id", naverSecretProperty.getClientId());
         header.add("X-Naver-Client-Secret", naverSecretProperty.getClientSecret());
 
         ResponseEntity<Shop> response = restTemplate.exchange(
@@ -37,8 +37,8 @@ public class NaverAdapter {
         HttpHeaders header = new HttpHeaders();
         header.add(HttpHeaders.ACCEPT, MediaType.TEXT_HTML_VALUE);
         header.add("Host", "openapi.naver.com");
-        header.add("X-Naver-Client-Id", naverSecretProperty.getClientID());
-        header.add("X-Naver-Client-Secret", naverSecretProperty.getClientID());
+        header.add("X-Naver-Client-Id", naverSecretProperty.getClientId());
+        header.add("X-Naver-Client-Secret", naverSecretProperty.getClientId());
 
         ResponseEntity<Movie> response = restTemplate.exchange(
                 url, HttpMethod.GET, new HttpEntity(header), Movie.class
