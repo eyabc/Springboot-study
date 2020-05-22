@@ -1,5 +1,6 @@
 package com.eyabc.springboot.adapter;
 
+import com.eyabc.springboot.adapter.response.Shop;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ public class NaverAdapter {
     private final String clientSecret = NaverAdapterSecret.getClientSecret();
     private final RestTemplate restTemplate;
 
-    public NaverAdapterResponse callSearchShop(String query) {
+    public Shop callSearchShop(String query) {
 
         String url = SEARCH_SHOP + "?query=" + query;
         HttpHeaders header = new HttpHeaders();
@@ -22,8 +23,8 @@ public class NaverAdapter {
         header.add("X-Naver-Client-Id", clientId);
         header.add("X-Naver-Client-Secret", clientSecret);
 
-        ResponseEntity<NaverAdapterResponse> response = restTemplate.exchange(
-          url, HttpMethod.GET, new HttpEntity(header), NaverAdapterResponse.class
+        ResponseEntity<Shop> response = restTemplate.exchange(
+          url, HttpMethod.GET, new HttpEntity(header), Shop.class
         );
 
         return response.getBody();

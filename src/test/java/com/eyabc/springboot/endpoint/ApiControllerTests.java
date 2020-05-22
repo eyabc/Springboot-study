@@ -30,11 +30,19 @@ public class ApiControllerTests {
     }
 
     @Test
-    public void 네이버숍_TEST() throws Exception {
+    public void 네이버쇼핑_TEST() throws Exception {
 
         mvc.perform(
                 get("/api/naver-shop").queryParam("query", "test")
         ).andExpect(status().isOk());
 
+    }
+
+    @Test신
+    public void 네이버영화_TEST() throws Exception {
+
+        mvc.perform(
+                get('/api/naver-movie'),queryParam("query", "")
+        ).andExpect(status().isOk());
     }
 }

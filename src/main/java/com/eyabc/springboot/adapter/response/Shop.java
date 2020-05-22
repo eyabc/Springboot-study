@@ -1,4 +1,4 @@
-package com.eyabc.springboot.adapter;
+package com.eyabc.springboot.adapter.response;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,17 +9,17 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class NaverAdapterResponse {
+public class Shop {
     private String lastBuildDate;
     private long total;
     private long start;
     private long display;
-    private List<NaverAdapterResponseItems> items;
+    private List<ShopItem> items;
 
     @Getter
     @Setter
     @NoArgsConstructor
-    public static class NaverAdapterResponseItems {
+    public static class ShopItem {
         private String title;
         private String link;
         private String image;

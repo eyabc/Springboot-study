@@ -15,8 +15,13 @@ public class ApiController {
 
     private final NaverAdapter naverAdapter;
 
+    @GetMapping("/test")
+    public String test() {
+        return "test";
+    }
+
     @GetMapping("/naver-shop")
-    public NaverAdapterResponse searchShop(@RequestParam("query") String query) {
+    public Shop searchShop(@RequestParam("query") String query) {
         return naverAdapter.callSearchShop(query);
     }
 
