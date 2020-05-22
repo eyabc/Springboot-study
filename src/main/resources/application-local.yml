@@ -1,0 +1,6 @@
+server:
+  port: 8080
+
+naver-search:
+  client-id: "CIaYbeixNk6tua3vl4wr"
+  client-secret: "BIQelnJoCq"
