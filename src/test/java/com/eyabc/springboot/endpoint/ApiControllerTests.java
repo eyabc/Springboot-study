@@ -1,6 +1,5 @@
 package com.eyabc.springboot.endpoint;
 
-import com.eyabc.springboot.adapter.NaverAdapter;
 import com.eyabc.springboot.facade.NaverFacade;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
