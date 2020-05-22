@@ -27,6 +27,6 @@ public class Movie {
         private String pubDate;
         private String director;
         private String actor;
-        private String userRating;
+        private double userRating;
     }
 }

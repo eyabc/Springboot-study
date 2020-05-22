@@ -1,6 +1,7 @@
 package com.eyabc.springboot.endpoint;
 
 import com.eyabc.springboot.adapter.NaverAdapter;
+import com.eyabc.springboot.facade.NaverFacade;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class ApiControllerTests {
     private MockMvc mvc;
 
     @MockBean
-    private NaverAdapter naverAdapter;
+    private NaverFacade naverFacade;
 
     @Test
     public void 테스트_TEST() throws Exception {
@@ -40,6 +41,14 @@ public class ApiControllerTests {
 
     @Test
     public void 네이버영화_TEST() throws Exception {
+
+        mvc.perform(
+                get("/api/naver-movie").queryParam("query", "신")
+        ).andExpect(status().isOk());
+    }
+
+    @Test
+    public void 네이버영화_평점높은순정렬_TEST() throws Exception {
 
         mvc.perform(
                 get("/api/naver-movie").queryParam("query", "신")
