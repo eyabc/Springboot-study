@@ -38,11 +38,11 @@ public class ApiControllerTests {
 
     }
 
-    @Test신
+    @Test
     public void 네이버영화_TEST() throws Exception {
 
         mvc.perform(
-                get('/api/naver-movie'),queryParam("query", "")
+                get("/api/naver-movie").queryParam("query", "신")
         ).andExpect(status().isOk());
     }
 }
