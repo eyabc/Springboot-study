@@ -3,6 +3,7 @@ package com.eyabc.springboot.endpoint;
 import com.eyabc.springboot.adapter.response.Movie;
 import com.eyabc.springboot.adapter.response.Shop;
 import com.eyabc.springboot.facade.NaverFacade;
+import com.eyabc.springboot.facade.RestTemplateFacade;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,10 +16,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class ApiController {
 
     private NaverFacade naverFacade;
+    private RestTemplateFacade restTemplateFacade;
 
     @GetMapping("/test")
     public String test() {
         return "test";
+    }
+
+    @GetMapping("/pooling-stats")
+    public String getPoolingStates() {
+        return restTemplateFacade.getPoolingStates();
     }
 
     @GetMapping("/naver-shop")

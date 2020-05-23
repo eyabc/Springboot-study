@@ -1,6 +1,7 @@
 package com.eyabc.springboot.endpoint;
 
 import com.eyabc.springboot.facade.NaverFacade;
+import com.eyabc.springboot.facade.RestTemplateFacade;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +23,19 @@ public class ApiControllerTests {
     @MockBean
     private NaverFacade naverFacade;
 
+    @MockBean
+    private RestTemplateFacade restTemplateFacade;
+
     @Test
     public void 테스트_TEST() throws Exception {
 
         mvc.perform(get("/api/test")).andExpect(status().isOk());
 
+    }
+
+    @Test
+    public void RestTemplatePooling_TEST() throws Exception {
+        mvc.perform(get("/api/pooling-stats")).andExpect(status().isOk());
     }
 
     @Test
