@@ -2,18 +2,18 @@ package com.eyabc.springboot.adapter;
 
 import com.eyabc.springboot.adapter.response.Movie;
 import com.eyabc.springboot.adapter.response.Shop;
+import com.eyabc.springboot.config.RestTemplateConfiguration;
 import com.eyabc.springboot.property.NaverSecretProperty;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 @Service
 @RequiredArgsConstructor
 public class NaverAdapter {
     private final NaverSecretProperty naverSecretProperty;
     private final String SEARCH = "https://openapi.naver.com/v1/search/";
-    private final RestTemplate restTemplate;
+    private final RestTemplateConfiguration restTemplateConfiguration;
 
     public Shop callSearchShop(String query) {
 
@@ -24,7 +24,7 @@ public class NaverAdapter {
         header.add("X-Naver-Client-Id", naverSecretProperty.getClientId());
         header.add("X-Naver-Client-Secret", naverSecretProperty.getClientSecret());
 
-        ResponseEntity<Shop> response = restTemplate.exchange(
+        ResponseEntity<Shop> response = restTemplateConfiguration.restTemplate().exchange(
           url, HttpMethod.GET, new HttpEntity(header), Shop.class
         );
 
@@ -40,7 +40,7 @@ public class NaverAdapter {
         header.add("X-Naver-Client-Id", naverSecretProperty.getClientId());
         header.add("X-Naver-Client-Secret", naverSecretProperty.getClientId());
 
-        ResponseEntity<Movie> response = restTemplate.exchange(
+        ResponseEntity<Movie> response = restTemplateConfiguration.restTemplate().exchange(
                 url, HttpMethod.GET, new HttpEntity(header), Movie.class
         );
 
