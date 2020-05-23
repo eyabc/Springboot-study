@@ -2,5 +2,5 @@ server:
   port: 8081
 
 naver-search:
-  client-id: "CIaYbeixNk6tua3vl4wr"
-  client-secret: "BIQelnJoCq"
+  client-id: "empty"
+  client-secret: "empty"

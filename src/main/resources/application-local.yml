@@ -1,6 +1,28 @@
+# server 설정
 server:
-  port: 8080
+  port: 8083
+
 
 naver-search:
   client-id: "CIaYbeixNk6tua3vl4wr"
   client-secret: "BIQelnJoCq"
+
+
+# httpConnPool 설정
+httpconnpool:
+  # maxTotal
+  max-total: 20
+  # 라우트 당 최대 값 설정
+  default-max-per-route: 20
+  # 최대 pending 값, pending이 일정 수준 이상 쌓이면 서비스를 제한 하기 위한 용도
+  max-pending: 50
+  # Time out 설정
+  connection-request-timeout: 3000
+  connection-timeout: 3000
+  socket-timeout: 3000
+
+  # 사이트별 최대 값 관리
+  max-per-routes[0].scheme: http
+  max-per-routes[0].host: localhost
+  max-per-routes[0].port: 8080
+  max-per-routes[0].max-per-route: 20
