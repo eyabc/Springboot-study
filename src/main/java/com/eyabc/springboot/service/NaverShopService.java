@@ -12,7 +12,7 @@ public class NaverShopService {
 
     @NonNull private final NaverAdapter naverAdapter;
 
-    public Shop getShop (String query) {
-        return naverAdapter.callSearchShop(query);
+    public Shop callShop(String query) {
+        return naverAdapter.callSearch("shop", query, Shop.class);
     }
 }
