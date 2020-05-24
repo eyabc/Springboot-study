@@ -12,38 +12,29 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class NaverAdapter {
     private final NaverSecretProperty naverSecretProperty;
-    private final String SEARCH = "https://openapi.naver.com/v1/search/";
+    private final String BASE_URL = "https://openapi.naver.com/v1/search/";
     private final RestTemplateConfiguration restTemplateConfiguration;
 
-    public Shop callSearchShop(String query) {
+    public <T> T callSearch (String target, String query, Class<T> className) {
 
-        String url = SEARCH + "shop.json?query=" + query;
+        String url = BASE_URL + target + ".json?query=" + query;
         HttpHeaders header = new HttpHeaders();
         header.add(HttpHeaders.ACCEPT, MediaType.TEXT_HTML_VALUE);
         header.add("Host", "openapi.naver.com");
         header.add("X-Naver-Client-Id", naverSecretProperty.getClientId());
         header.add("X-Naver-Client-Secret", naverSecretProperty.getClientSecret());
 
-        ResponseEntity<Shop> response = restTemplateConfiguration.restTemplate().exchange(
-          url, HttpMethod.GET, new HttpEntity(header), Shop.class
-        );
+        ResponseEntity<T> response = restTemplateConfiguration.restTemplate().exchange(
+                url, HttpMethod.GET, new HttpEntity(header), className);
 
         return response.getBody();
     }
 
+    public Shop callSearchShop(String query) {
+        return callSearch("shop", query, Shop.class);
+    }
+
     public Movie callSearchMovie(String query) {
-
-        String url = SEARCH + "movie.json?query=" + query;
-        HttpHeaders header = new HttpHeaders();
-        header.add(HttpHeaders.ACCEPT, MediaType.TEXT_HTML_VALUE);
-        header.add("Host", "openapi.naver.com");
-        header.add("X-Naver-Client-Id", naverSecretProperty.getClientId());
-        header.add("X-Naver-Client-Secret", naverSecretProperty.getClientId());
-
-        ResponseEntity<Movie> response = restTemplateConfiguration.restTemplate().exchange(
-                url, HttpMethod.GET, new HttpEntity(header), Movie.class
-        );
-
-        return response.getBody();
+        return callSearch("movie", query, Movie.class);
     }
 }
