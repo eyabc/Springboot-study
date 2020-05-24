@@ -7,7 +7,7 @@ import org.springframework.context.annotation.PropertySource;
 
 import java.util.List;
 
-@PropertySource("classpath:application-local.properties")
+@PropertySource("classpath:application-local.yml")
 @ConfigurationProperties(prefix = "httpconnpool")
 @Data
 @ToString
