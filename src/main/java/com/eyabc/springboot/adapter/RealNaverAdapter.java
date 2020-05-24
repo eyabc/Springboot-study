@@ -20,7 +20,6 @@ public class RealNaverAdapter implements NaverAdapter {
 
     public <T> T callSearch (String target, String query, Class<T> className) {
         String url = BASE_URL + target + ".json?query=" + query;
-        log.error("RNaverAdapter.callSearch() - url : {}", url);
         HttpHeaders header = new HttpHeaders();
         header.add(HttpHeaders.ACCEPT, MediaType.TEXT_HTML_VALUE);
         header.add("Host", "openapi.naver.com");
