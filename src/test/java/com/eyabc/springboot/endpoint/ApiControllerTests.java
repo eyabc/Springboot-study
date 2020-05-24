@@ -2,6 +2,7 @@ package com.eyabc.springboot.endpoint;
 
 import com.eyabc.springboot.facade.NaverFacade;
 import com.eyabc.springboot.facade.RestTemplateFacade;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,19 +28,20 @@ public class ApiControllerTests {
     private RestTemplateFacade restTemplateFacade;
 
     @Test
-    public void 테스트_TEST() throws Exception {
+    public void 테스트API_TEST() throws Exception {
 
         mvc.perform(get("/api/test")).andExpect(status().isOk());
 
     }
 
+    @DisplayName("RestTemplate의 Connection Pool을 테스트")
     @Test
     public void RestTemplatePooling_TEST() throws Exception {
         mvc.perform(get("/api/pooling-stats")).andExpect(status().isOk());
     }
 
     @Test
-    public void 네이버쇼핑_TEST() throws Exception {
+    public void 네이버쇼핑API_TEST() throws Exception {
 
         mvc.perform(
                 get("/api/naver-shop").queryParam("query", "test")
@@ -48,18 +50,11 @@ public class ApiControllerTests {
     }
 
     @Test
-    public void 네이버영화_TEST() throws Exception {
+    public void 네이버영화API_TEST() throws Exception {
 
         mvc.perform(
                 get("/api/naver-movie").queryParam("query", "신")
         ).andExpect(status().isOk());
     }
 
-    @Test
-    public void 네이버영화_평점높은순정렬_TEST() throws Exception {
-
-        mvc.perform(
-                get("/api/naver-movie").queryParam("query", "신")
-        ).andExpect(status().isOk());
-    }
 }
