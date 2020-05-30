@@ -7,11 +7,10 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties(prefix = "naver-search")
+@ConfigurationProperties(prefix = "kakao")
 @Getter
 @Setter
 @NoArgsConstructor
-public class NaverSecretProperty {
-    private String clientId;
-    private String clientSecret;
+public class KakaoSecretProperty {
+    private String restapiKey;
 }

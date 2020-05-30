@@ -7,6 +7,8 @@ naver-search:
   client-id: "CIaYbeixNk6tua3vl4wr"
   client-secret: "BIQelnJoCq"
 
+kakao:
+  restapi-key: "e7729c94676e35d30e71228c172739bd"
 
 # httpConnPool 설정
 httpconnpool:
