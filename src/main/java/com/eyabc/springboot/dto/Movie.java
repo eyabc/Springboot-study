@@ -1,4 +1,4 @@
-package com.eyabc.springboot.adapter.response;
+package com.eyabc.springboot.dto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
