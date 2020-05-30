@@ -1,4 +1,4 @@
-package com.eyabc.springboot.endpoint;
+package com.eyabc.springboot.controller.endpoint;
 
 import com.eyabc.springboot.facade.NaverFacade;
 import com.eyabc.springboot.facade.RestTemplateFacade;
