@@ -7,11 +7,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class NaverShopService {
+public class NaverShopService implements NaverSearchService {
+    private final NaverAdapter naverAdapter;
 
-    @NonNull private final NaverAdapter naverAdapter;
-
-    public Shop callShop(String query) {
+    @Override
+    public Shop getByQuery (String query) {
         return naverAdapter.callSearch("shop", query, Shop.class);
     }
 }

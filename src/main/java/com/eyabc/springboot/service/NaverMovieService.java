@@ -7,11 +7,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class NaverMovieService {
-
+public class NaverMovieService implements NaverSearchService {
     private final NaverAdapter naverAdapter;
 
-    public Movie callMovie (String query) {
+    @Override
+    public Movie getByQuery (String query) {
         return naverAdapter.callSearch("movie", query, Movie.class);
     }
 }

@@ -18,15 +18,15 @@ public class NaverFacade {
     @NonNull private final NaverShopService naverShopService;
 
     public Shop getShopList (String query) {
-        return naverShopService.callShop(query);
+        return naverShopService.getByQuery(query);
     }
 
     public Movie getMovieList (String query) {
-        return  naverMovieService.callMovie(query);
+        return  naverMovieService.getByQuery(query);
     }
 
     public Movie getMovieListSortByUserRating (String query) {
-        Movie movie = naverMovieService.callMovie(query);
+        Movie movie = naverMovieService.getByQuery(query);
         movie.getItems().sort((a, b) -> b.getUserRating() > a.getUserRating() ? 1 : -1);
         return movie;
     }
