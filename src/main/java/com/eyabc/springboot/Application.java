@@ -8,10 +8,10 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 
 @SpringBootApplication
 @EnableConfigurationProperties({NaverSecretProperty.class, HttpHostsConfiguration.class})
-public class SpringbootApplication {
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringbootApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
 }
