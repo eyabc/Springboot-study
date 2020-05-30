@@ -2,7 +2,7 @@ package com.eyabc.springboot.facade;
 
 import com.eyabc.springboot.adapter.MockNaverAdapter;
 import com.eyabc.springboot.adapter.NaverAdapter;
-import com.eyabc.springboot.dto.Movie;
+import com.eyabc.springboot.dto.Naver.NaverMovieDto;
 import com.eyabc.springboot.service.NaverMovieService;
 import com.eyabc.springboot.service.NaverShopService;
 import org.junit.jupiter.api.BeforeEach;
@@ -28,7 +28,7 @@ public class NaverFacadeTest {
 
     @Test
     public void 네이버영화API_평점높은순정렬_MOCK_TEST() {
-        Movie movie = naverFacade.getMovieListSortByUserRating("test");
-        assertThat(5.78).isEqualTo(movie.getItems().get(0).getUserRating());
+        NaverMovieDto naverMovieObject = naverFacade.getMovieListSortByUserRating("test");
+        assertThat(5.78).isEqualTo(naverMovieObject.getItems().get(0).getUserRating());
     }
 }

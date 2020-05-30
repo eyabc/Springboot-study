@@ -1,7 +1,7 @@
 package com.eyabc.springboot.controller.endpoint;
 
-import com.eyabc.springboot.dto.Movie;
-import com.eyabc.springboot.dto.Shop;
+import com.eyabc.springboot.dto.Naver.NaverMovieDto;
+import com.eyabc.springboot.dto.Naver.NaverShopDto;
 import com.eyabc.springboot.facade.NaverFacade;
 import com.eyabc.springboot.facade.RestTemplateFacade;
 import lombok.AllArgsConstructor;
@@ -29,12 +29,12 @@ public class ApiController {
     }
 
     @GetMapping("/naver-shop")
-    public Shop searchShop(@RequestParam("query") String query) {
+    public NaverShopDto searchShop(@RequestParam("query") String query) {
         return naverFacade.getShopList(query);
     }
 
     @GetMapping("/naver-movie")
-    public Movie searchMovie(@RequestParam("query") String query) {
+    public NaverMovieDto searchMovie(@RequestParam("query") String query) {
         return naverFacade.getMovieList(query);
     }
 

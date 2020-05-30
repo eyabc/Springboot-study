@@ -1,20 +1,13 @@
-package com.eyabc.springboot.dto;
+package com.eyabc.springboot.dto.Naver;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Getter
 @Setter
 @NoArgsConstructor
-public class Shop {
-    private String lastBuildDate;
-    private long total;
-    private long start;
-    private long display;
-    private List<ShopItem> items;
+public class NaverShopDto extends NaverSearchDto<NaverShopDto.ShopItem> {
 
     @Getter
     @Setter

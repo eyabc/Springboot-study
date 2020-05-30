@@ -1,7 +1,7 @@
 package com.eyabc.springboot.facade;
 
-import com.eyabc.springboot.dto.Movie;
-import com.eyabc.springboot.dto.Shop;
+import com.eyabc.springboot.dto.Naver.NaverMovieDto;
+import com.eyabc.springboot.dto.Naver.NaverShopDto;
 import com.eyabc.springboot.service.NaverMovieService;
 import com.eyabc.springboot.service.NaverShopService;
 import lombok.NonNull;
@@ -17,18 +17,18 @@ public class NaverFacade {
     @NonNull private final NaverMovieService naverMovieService;
     @NonNull private final NaverShopService naverShopService;
 
-    public Shop getShopList (String query) {
+    public NaverShopDto getShopList (String query) {
         return naverShopService.getByQuery(query);
     }
 
-    public Movie getMovieList (String query) {
+    public NaverMovieDto getMovieList (String query) {
         return  naverMovieService.getByQuery(query);
     }
 
-    public Movie getMovieListSortByUserRating (String query) {
-        Movie movie = naverMovieService.getByQuery(query);
-        movie.getItems().sort((a, b) -> b.getUserRating() > a.getUserRating() ? 1 : -1);
-        return movie;
+    public NaverMovieDto getMovieListSortByUserRating (String query) {
+        NaverMovieDto result = naverMovieService.getByQuery(query);
+        result.getItems().sort((a, b) -> b.getUserRating() > a.getUserRating() ? 1 : -1);
+        return result;
     }
 
 }
