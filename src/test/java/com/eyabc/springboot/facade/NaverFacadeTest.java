@@ -2,8 +2,7 @@ package com.eyabc.springboot.facade;
 
 import com.eyabc.springboot.adapter.MockNaverAdapter;
 import com.eyabc.springboot.adapter.NaverAdapter;
-import com.eyabc.springboot.adapter.response.Movie;
-import com.eyabc.springboot.endpoint.ApiControllerTests;
+import com.eyabc.springboot.dto.Movie;
 import com.eyabc.springboot.service.NaverMovieService;
 import com.eyabc.springboot.service.NaverShopService;
 import org.junit.jupiter.api.BeforeEach;

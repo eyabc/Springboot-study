@@ -1,7 +1,7 @@
-package com.eyabc.springboot.endpoint;
+package com.eyabc.springboot.controller.endpoint;
 
-import com.eyabc.springboot.adapter.response.Movie;
-import com.eyabc.springboot.adapter.response.Shop;
+import com.eyabc.springboot.dto.Movie;
+import com.eyabc.springboot.dto.Shop;
 import com.eyabc.springboot.facade.NaverFacade;
 import com.eyabc.springboot.facade.RestTemplateFacade;
 import lombok.AllArgsConstructor;
@@ -37,6 +37,5 @@ public class ApiController {
     public Movie searchMovie(@RequestParam("query") String query) {
         return naverFacade.getMovieList(query);
     }
-
 
 }

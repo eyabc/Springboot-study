@@ -1,7 +1,7 @@
 package com.eyabc.springboot.service;
 
 import com.eyabc.springboot.adapter.NaverAdapter;
-import com.eyabc.springboot.adapter.response.Movie;
+import com.eyabc.springboot.dto.Movie;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

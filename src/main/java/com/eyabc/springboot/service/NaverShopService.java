@@ -1,8 +1,7 @@
 package com.eyabc.springboot.service;
 
 import com.eyabc.springboot.adapter.NaverAdapter;
-import com.eyabc.springboot.adapter.response.Shop;
-import lombok.NonNull;
+import com.eyabc.springboot.dto.Shop;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,7 @@
 package com.eyabc.springboot.facade;
 
-import com.eyabc.springboot.adapter.response.Movie;
-import com.eyabc.springboot.adapter.response.Shop;
+import com.eyabc.springboot.dto.Movie;
+import com.eyabc.springboot.dto.Shop;
 import com.eyabc.springboot.service.NaverMovieService;
 import com.eyabc.springboot.service.NaverShopService;
 import lombok.NonNull;

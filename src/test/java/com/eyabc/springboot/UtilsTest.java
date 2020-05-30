@@ -1,6 +1,6 @@
 package com.eyabc.springboot;
 
-import com.eyabc.springboot.adapter.response.Shop;
+import com.eyabc.springboot.dto.Shop;
 import com.eyabc.springboot.utils.JsonFileParser;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
