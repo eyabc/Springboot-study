@@ -1,13 +1,13 @@
-package com.eyabc.springboot.service;
+package com.eyabc.springboot.service.search;
 
 import com.eyabc.springboot.adapter.NaverAdapter;
-import com.eyabc.springboot.dto.Naver.NaverShopDto;
+import com.eyabc.springboot.dto.naver.NaverShopDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class NaverShopService implements NaverSearchService {
+public class NaverShopService implements SearchService {
     private final NaverAdapter naverAdapter;
 
     @Override
