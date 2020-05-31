@@ -1,7 +1,7 @@
 package com.eyabc.springboot;
 
-import com.eyabc.springboot.dto.Naver.NaverSearchDto;
-import com.eyabc.springboot.dto.Naver.NaverShopDto;
+import com.eyabc.springboot.dto.naver.NaverSearchDto;
+import com.eyabc.springboot.dto.naver.NaverShopDto;
 import com.eyabc.springboot.utils.JsonFileParser;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
