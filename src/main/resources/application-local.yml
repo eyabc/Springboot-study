@@ -8,7 +8,7 @@ naver-search:
   client-secret: "BIQelnJoCq"
 
 kakao:
-  restapi-key: "e7729c94676e35d30e71228c172739bd"
+  restapi-key: "KakaoAK e7729c94676e35d30e71228c172739bd"
 
 # httpConnPool 설정
 httpconnpool:

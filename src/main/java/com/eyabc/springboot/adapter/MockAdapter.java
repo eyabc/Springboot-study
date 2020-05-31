@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 @Profile("test")
-public class MockNaverAdapter implements NaverAdapter {
+public class MockAdapter implements Adapter {
 
     @Override
     public <T> T callSearch (String target, String query, Class<T> className) {
