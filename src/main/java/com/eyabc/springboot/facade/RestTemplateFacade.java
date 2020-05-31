@@ -14,7 +14,6 @@ public class RestTemplateFacade {
     private final RestTemplateUtil restTemplateUtil;
 
     public String getPoolingStates() {
-
         log.info(restTemplateUtil.createHttpInfo());
         try {
             return this.restTemplate.getForObject("http://localhost:8083/api/naver-shop?query=test", String.class);
