@@ -1,4 +1,4 @@
-package com.eyabc.springboot.dto.Naver;
+package com.eyabc.springboot.dto.naver;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
