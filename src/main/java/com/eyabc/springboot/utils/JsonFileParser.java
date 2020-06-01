@@ -9,9 +9,9 @@ import java.io.IOException;
 @Slf4j
 @UtilityClass
 public class JsonFileParser {
-    public static <T> T parse (String path, Class<T> className) {
+    public static <T> T parse (String service, String path, Class<T> className) {
         try {
-            ClassPathResource resource = new ClassPathResource("mock/" + path + ".json");
+            ClassPathResource resource = new ClassPathResource("mock/" + service + "-"+ path + ".json");
             ObjectMapper mapper = new ObjectMapper();
             return mapper.readValue(resource.getInputStream(), className);
         } catch (IOException e) {

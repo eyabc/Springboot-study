@@ -14,8 +14,7 @@ public class KakaoBookService implements SearchService {
 
     @Override
     public BookDTO getByQuery(String query) {
-        KakaoBookDto books = adapter.callSearch("book", query, KakaoBookDto.class);
-        return BookDTO.fromKakao(books);
+        return BookDTO.fromKakao(adapter.callSearch("kakao", "book", query, KakaoBookDto.class));
     }
 
 }

@@ -12,7 +12,7 @@ public class NaverMovieService implements SearchService {
     private final Adapter adapter;
 
     public MovieDTO getByQuery (String query) {
-        return MovieDTO.fromNaver(adapter.callSearch("movie", query, NaverMovieDto.class));
+        return MovieDTO.fromNaver(adapter.callSearch("naver", "movie", query, NaverMovieDto.class));
     }
 }
 

@@ -16,7 +16,7 @@ public class KakaoSearchAdapter implements Adapter {
     private final String BASE_URL = "https://dapi.kakao.com/v3/search/";
     private final RestTemplateConfiguration restTemplateConfiguration;
 
-    public <T> T callSearch (String target, String query, Class<T> className) {
+    public <T> T callSearch (String service, String target, String query, Class<T> className) {
         String url = BASE_URL + target + "?query=" + query;
         HttpHeaders header = new HttpHeaders();
         header.add(HttpHeaders.ACCEPT, MediaType.TEXT_HTML_VALUE);

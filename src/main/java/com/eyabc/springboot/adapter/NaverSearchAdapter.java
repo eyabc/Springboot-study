@@ -18,7 +18,7 @@ public class NaverSearchAdapter implements Adapter {
     private final String BASE_URL = "https://openapi.naver.com/v1/search/";
     private final RestTemplateConfiguration restTemplateConfiguration;
 
-    public <T> T callSearch (String target, String query, Class<T> className) {
+    public <T> T callSearch (String prefix, String target, String query, Class<T> className) {
         String url = BASE_URL + target + ".json?query=" + query;
         HttpHeaders header = new HttpHeaders();
         header.add(HttpHeaders.ACCEPT, MediaType.TEXT_HTML_VALUE);

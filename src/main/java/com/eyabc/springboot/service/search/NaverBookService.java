@@ -13,7 +13,7 @@ public class NaverBookService implements SearchService {
 
     @Override
     public BookDTO getByQuery (String query) {
-        return BookDTO.fromNaver(adapter.callSearch("book", query, NaverBookDto.class));
+        return BookDTO.fromNaver(adapter.callSearch("naver","book", query, NaverBookDto.class));
     }
 }
 

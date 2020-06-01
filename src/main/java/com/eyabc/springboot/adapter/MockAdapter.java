@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class MockAdapter implements Adapter {
 
     @Override
-    public <T> T callSearch (String target, String query, Class<T> className) {
-        return JsonFileParser.parse(target, className);
+    public <T> T callSearch (String service, String target, String query, Class<T> className) {
+        return JsonFileParser.parse(service, target, className);
     }
 }
