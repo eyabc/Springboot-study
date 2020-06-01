@@ -3,12 +3,10 @@ package com.eyabc.springboot.adapter;
 import com.eyabc.springboot.config.RestTemplateConfiguration;
 import com.eyabc.springboot.property.KakaoSecretProperty;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Profile;
 import org.springframework.http.*;
 import org.springframework.stereotype.Component;
 
-@Slf4j
 @Component
 @RequiredArgsConstructor
 @Profile("!test & kakao")
