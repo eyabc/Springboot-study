@@ -2,6 +2,7 @@ package com.eyabc.springboot.service.search;
 
 import com.eyabc.springboot.adapter.Adapter;
 import com.eyabc.springboot.dto.naver.NaverMovieDto;
+import com.eyabc.springboot.dto.search.MovieDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,9 +11,8 @@ import org.springframework.stereotype.Service;
 public class NaverMovieService implements SearchService {
     private final Adapter adapter;
 
-    @Override
-    public NaverMovieDto getByQuery (String query) {
-        return adapter.callSearch("movie", query, NaverMovieDto.class);
+    public MovieDTO getByQuery (String query) {
+        return MovieDTO.fromNaver(adapter.callSearch("movie", query, NaverMovieDto.class));
     }
 }
 
