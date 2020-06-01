@@ -10,8 +10,16 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 public class KakaoSearchDto<T> {
-    private boolean is_end;
-    private int pageable_count;
-    private long total_count;
-    private List<T> items;
+
+    private KakaoSearchMeta meta;
+    private List<T> documents;
+
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    public static class KakaoSearchMeta {
+        private boolean is_end;
+        private int pageable_count;
+        private long total_count;
+    }
 }
