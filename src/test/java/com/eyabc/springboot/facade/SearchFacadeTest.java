@@ -7,13 +7,13 @@ import com.eyabc.springboot.service.search.MovieService;
 import com.eyabc.springboot.service.search.NaverMovieService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class SearchFacadeTest {
 
     private Adapter adapter;
-    private MovieService movieService;
     private NaverMovieService naverMovieService;
     private SearchFacade searchFacade;
 
@@ -28,7 +28,15 @@ public class SearchFacadeTest {
     @Test
     public void 네이버영화API_평점높은순정렬_MOCK_TEST() {
         adapter = new MockAdapter();
-        MovieDTO naverMovies = searchFacade.getMoviesSortByUserRating(naverMovieService, "test");
-        assertThat(5.78).isEqualTo(naverMovies.getItems().get(0).getUserRating());
+        MovieDTO movies = searchFacade.getMoviesSortByUserRating(naverMovieService, "test");
+        assertThat(5.78).isEqualTo(movies.getItems().get(0).getUserRating());
+    }
+
+    @Test
+    public void 평점이있는_네이버영화API_필터_MOCK_TEST() {
+        adapter = new MockAdapter();
+        int expect = 1;
+        MovieDTO movies = searchFacade.getMoviesHavingUserRating(naverMovieService, "test");
+        assertThat(expect).isEqualTo(movies.getItems().size());
     }
 }
