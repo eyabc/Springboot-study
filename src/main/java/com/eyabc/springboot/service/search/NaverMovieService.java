@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class NaverMovieService implements SearchService {
+public class NaverMovieService implements MovieService {
     private final Adapter adapter;
 
     public MovieDTO getByQuery (String query) {

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/search")
 public class NaverSearchController {
     private SearchService searchService;
+    private MovieService movieService;
     final Adapter adapter;
 
     @GetMapping("/shops")
@@ -28,7 +29,7 @@ public class NaverSearchController {
 
     @GetMapping("/movies")
     public MovieDTO searchMovie(@RequestParam("query") String query) {
-        searchService = new NaverMovieService(adapter);
+        movieService = new NaverMovieService(adapter);
         return searchService.getByQuery(query);
     }
 
