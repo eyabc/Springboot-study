@@ -18,14 +18,16 @@ public class SearchFacade {
 
     public MovieDTO getMoviesHavingUserRating(MovieService movieService, String query) {
         MovieDTO movies = movieService.getByQuery(query);
+        List filtered = movies.getItems()
+                .stream()
+                .filter(v -> v.getUserRating() != 0.0)
+                .collect(toList());
+
         return MovieDTO.builder()
-                       .total(movies.getTotal())
-                       .lastBuildDate(movies.getLastBuildDate())
-                       .items(movies.getItems()
-                               .stream()
-                               .filter(v -> v.getUserRating() != 0.0)
-                               .collect(toList()))
-                       .build();
+                .lastBuildDate(movies.getLastBuildDate())
+                .total(filtered.size())
+                .items(filtered)
+                .build();
     }
 
 }

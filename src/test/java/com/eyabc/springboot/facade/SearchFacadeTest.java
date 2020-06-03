@@ -3,11 +3,9 @@ package com.eyabc.springboot.facade;
 import com.eyabc.springboot.adapter.MockAdapter;
 import com.eyabc.springboot.adapter.Adapter;
 import com.eyabc.springboot.dto.search.MovieDTO;
-import com.eyabc.springboot.service.search.MovieService;
 import com.eyabc.springboot.service.search.NaverMovieService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -37,6 +35,6 @@ public class SearchFacadeTest {
         adapter = new MockAdapter();
         int expect = 1;
         MovieDTO movies = searchFacade.getMoviesHavingUserRating(naverMovieService, "test");
-        assertThat(expect).isEqualTo(movies.getItems().size());
+        assertThat(expect).isEqualTo(movies.getTotal());
     }
 }
