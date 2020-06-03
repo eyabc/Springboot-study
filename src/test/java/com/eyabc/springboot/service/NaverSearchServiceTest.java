@@ -30,7 +30,7 @@ public class NaverSearchServiceTest {
     public void 네이버영화API_TEST() throws Exception {
         int expect = 45;
         movieService = new NaverMovieService(adapter);
-        MovieDTO result =  searchService.getByQuery("test");
+        MovieDTO result = movieService.getByQuery("test");
 
         assertThat(expect).isEqualTo(result.getTotal());
 
