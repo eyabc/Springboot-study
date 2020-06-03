@@ -5,6 +5,9 @@ import com.eyabc.springboot.service.search.MovieService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import static java.util.stream.Collectors.toList;
 
 @Component
@@ -29,5 +32,28 @@ public class SearchFacade {
                 .items(filtered)
                 .build();
     }
+
+    public MovieDTO getMoviesRemovedTags(MovieService movieService, String query) {
+        MovieDTO movies = movieService.getByQuery(query);
+        String tagPattern = "<b>|</b>";
+
+        return MovieDTO.builder()
+                .lastBuildDate(movies.getLastBuildDate())
+                .total(movies.getTotal())
+                .items(movies.getItems().stream()
+                        .map(item -> MovieDTO.MovieItemDTO.builder()
+                                .title(item.getTitle().replaceAll(tagPattern, ""))
+                                .link(item.getLink())
+                                .image(item.getImage())
+                                .subtitle(item.getSubtitle().replaceAll(tagPattern, ""))
+                                .pubDate(item.getPubDate())
+                                .director(item.getDirector())
+                                .actor(item.getActor())
+                                .userRating(item.getUserRating())
+                                .build())
+                        .collect(Collectors.toList()))
+                .build();
+    }
+
 
 }

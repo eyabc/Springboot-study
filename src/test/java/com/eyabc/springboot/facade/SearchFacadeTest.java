@@ -37,4 +37,13 @@ public class SearchFacadeTest {
         MovieDTO movies = searchFacade.getMoviesHavingUserRating(naverMovieService, "test");
         assertThat(expect).isEqualTo(movies.getTotal());
     }
+
+    @Test
+    public void 태그가제거된_타이틀_네이버영화API_MOCK_TEST() {
+        adapter = new MockAdapter();
+        String expect = "The Test of Time";
+
+        MovieDTO movies = searchFacade.getMoviesRemovedTags(naverMovieService, "test");
+        assertThat(expect).isEqualTo(movies.getItems().get(0).getSubtitle());
+    }
 }
