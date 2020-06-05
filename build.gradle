@@ -18,6 +18,7 @@ dependencies {
     compile group: 'org.slf4j', name: 'slf4j-api'
     compile 'org.projectlombok:lombok'
     compile 'org.apache.commons:commons-collections4:4.4'
+    testCompile "org.mockito:mockito-core:1.+"
     annotationProcessor 'org.projectlombok:lombok'
     compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
     implementation 'org.apache.httpcomponents:httpclient'

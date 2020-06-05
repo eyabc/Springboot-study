@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Profile;
 import org.springframework.http.*;
 import org.springframework.stereotype.Component;
+import org.springframework.web.server.ResponseStatusException;
 
 @Slf4j
 @Component
@@ -26,9 +27,13 @@ public class NaverSearchAdapter implements Adapter {
         header.add("X-Naver-Client-Id", naverSecretProperty.getClientId());
         header.add("X-Naver-Client-Secret", naverSecretProperty.getClientSecret());
 
-        ResponseEntity<T> response = restTemplateConfiguration.restTemplate().exchange(
+        try {
+            ResponseEntity<T> response = restTemplateConfiguration.restTemplate().exchange(
                 url, HttpMethod.GET, new HttpEntity(header), className);
+            return response.getBody();
+        } catch (ResponseStatusException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
 
-        return response.getBody();
     }
 }

@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/search")
 public class KakaoSearchController {
     protected SearchService searchService;
-    final Adapter adapter;
+    private final Adapter adapter;
 
     @GetMapping("/books")
     public BookDTO getBooks(@RequestParam("query") String query) {
