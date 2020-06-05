@@ -37,6 +37,26 @@ public class MovieDTO {
                 .build();
     }
 
+    public static MovieDTO updateDTO (MovieDTO dto, List<MovieItemDTO> lists) {
+        return MovieDTO.builder()
+                .lastBuildDate(dto.getLastBuildDate())
+                .total(lists.size())
+                .items(lists.stream()
+                        .map(item -> MovieDTO.MovieItemDTO.builder()
+                                .title(item.getTitle())
+                                .link(item.getLink())
+                                .image(item.getImage())
+                                .subtitle(item.getSubtitle())
+                                .pubDate(item.getPubDate())
+                                .director(item.getDirector())
+                                .actor(item.getActor())
+                                .userRating(item.getUserRating())
+                                .build())
+                        .collect(Collectors.toList()))
+                .build();
+    }
+
+
     @Builder
     @Getter
     public static class MovieItemDTO {
